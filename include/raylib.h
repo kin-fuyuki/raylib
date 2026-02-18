@@ -171,7 +171,33 @@
 
 // Some Basic Colors
 // NOTE: Custom raylib color palette for amazing visuals on WHITE background
+#define LIGHTGRAY  CLITERAL(Color){ 200, 200, 200, 255 }   // Light Gray
+#define GRAY       CLITERAL(Color){ 130, 130, 130, 255 }   // Gray
+#define DARKGRAY   CLITERAL(Color){ 80, 80, 80, 255 }      // Dark Gray
+#define YELLOW     CLITERAL(Color){ 253, 249, 0, 255 }     // Yellow
+#define GOLD       CLITERAL(Color){ 255, 203, 0, 255 }     // Gold
+#define ORANGE     CLITERAL(Color){ 255, 161, 0, 255 }     // Orange
+#define PINK       CLITERAL(Color){ 255, 109, 194, 255 }   // Pink
+#define RED        CLITERAL(Color){ 230, 41, 55, 255 }     // Red
+#define MAROON     CLITERAL(Color){ 190, 33, 55, 255 }     // Maroon
+#define GREEN      CLITERAL(Color){ 0, 228, 48, 255 }      // Green
+#define LIME       CLITERAL(Color){ 0, 158, 47, 255 }      // Lime
+#define DARKGREEN  CLITERAL(Color){ 0, 117, 44, 255 }      // Dark Green
+#define SKYBLUE    CLITERAL(Color){ 102, 191, 255, 255 }   // Sky Blue
+#define BLUE       CLITERAL(Color){ 0, 121, 241, 255 }     // Blue
+#define DARKBLUE   CLITERAL(Color){ 0, 82, 172, 255 }      // Dark Blue
+#define PURPLE     CLITERAL(Color){ 200, 122, 255, 255 }   // Purple
+#define VIOLET     CLITERAL(Color){ 135, 60, 190, 255 }    // Violet
+#define DARKPURPLE CLITERAL(Color){ 112, 31, 126, 255 }    // Dark Purple
+#define BEIGE      CLITERAL(Color){ 211, 176, 131, 255 }   // Beige
+#define BROWN      CLITERAL(Color){ 127, 106, 79, 255 }    // Brown
+#define DARKBROWN  CLITERAL(Color){ 76, 63, 47, 255 }      // Dark Brown
 
+#define WHITE      CLITERAL(Color){ 255, 255, 255, 255 }   // White
+#define BLACK      CLITERAL(Color){ 0, 0, 0, 255 }         // Black
+#define BLANK      CLITERAL(Color){ 0, 0, 0, 0 }           // Blank (Transparent)
+#define MAGENTA    CLITERAL(Color){ 255, 0, 255, 255 }     // Magenta
+#define RAYWHITE   CLITERAL(Color){ 245, 245, 245, 255 }   // My own White (raylib logo)
 
 //----------------------------------------------------------------------------------
 // Types and Structures Definition
@@ -1185,7 +1211,7 @@ RLAPI bool IsMouseButtonUp(int button);                       // Check if a mous
 RLAPI int GetMouseX(void);                                    // Get mouse position X
 RLAPI int GetMouseY(void);                                    // Get mouse position Y
 RLAPI Vector2 GetMousePosition(void);                         // Get mouse position XY
-RLAPI Vector2 GetMousePositionDesktop(void);                  // Get mouse position XY
+RLAPI Vector2 GetMousePositionDesktop(void);                  // Get mouse position XY in desktop
 RLAPI Vector2 GetMouseDelta(void);                            // Get mouse delta between frames
 RLAPI void SetMousePosition(int x, int y);                    // Set mouse position XY
 RLAPI void SetMouseOffset(int offsetX, int offsetY);          // Set mouse offset
@@ -1698,35 +1724,5 @@ RLAPI void DetachAudioMixedProcessor(AudioCallback processor); // Detach audio s
 #if defined(__cplusplus)
 }
 #endif
-
-namespace rl{
-    inline Color LIGHTGRAY  = { 200, 200, 200, 255 };
-    inline Color GRAY       = { 130, 130, 130, 255 };
-    inline Color DARKGRAY   = { 80, 80, 80, 255 };
-    inline Color YELLOW_C   = { 253, 249, 0, 255 };
-    inline Color GOLD       = { 255, 203, 0, 255 };
-    inline Color ORANGE     = { 255, 161, 0, 255 };
-    inline Color PINK       = { 255, 109, 194, 255 };
-    inline Color RED_C      = { 230, 41, 55, 255 };
-    inline Color MAROON     = { 190, 33, 55, 255 };
-    inline Color GREEN_C    = { 0, 228, 48, 255 };
-    inline Color LIME       = { 0, 158, 47, 255 };
-    inline Color DARKGREEN  = { 0, 117, 44, 255 };
-    inline Color SKYBLUE    = { 102, 191, 255, 255 };
-    inline Color BLUE_C     = { 0, 121, 241, 255 };
-    inline Color DARKBLUE   = { 0, 82, 172, 255 };
-    inline Color PURPLE     = { 200, 122, 255, 255 };
-    inline Color VIOLET     = { 135, 60, 190, 255 };
-    inline Color DARKPURPLE = { 112, 31, 126, 255 };
-    inline Color BEIGE      = { 211, 176, 131, 255 };
-    inline Color BROWN      = { 127, 106, 79, 255 };
-    inline Color DARKBROWN  = { 76, 63, 47, 255 };
-    inline Color WHITE    = { 255, 255, 255, 255 };
-    inline Color BLACK    = { 0, 0, 0, 255 };
-    inline Color BLANK      = { 0, 0, 0, 0 };
-    inline Color MAGENTA  = { 255, 0, 255, 255 };
-    inline Color RAYWHITE   = { 245, 245, 245, 255 };
-}
-
 
 #endif // RAYLIB_H

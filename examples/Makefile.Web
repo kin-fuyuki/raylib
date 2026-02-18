@@ -176,7 +176,7 @@ endif
 
 # Define default C compiler: CC
 #------------------------------------------------------------------------------------------------
-CC = gcc
+CC = clang
 
 ifeq ($(TARGET_PLATFORM),PLATFORM_DESKTOP_GLFW)
     ifeq ($(PLATFORM_OS),OSX)

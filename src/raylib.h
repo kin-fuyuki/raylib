@@ -224,37 +224,68 @@ typedef struct Color {
     unsigned char b;        // Color blue value
     unsigned char a;        // Color alpha value
 } Color;
-#ifndef RAYCOLOR
-#define RAYCOLOR
+#ifdef __cplusplus
 namespace rl {
-	const Color LIGHTGRAY = (Color){ 200, 200, 200, 255 }   ;// Light Gray
-	const Color GRAY      = (Color){ 130, 130, 130, 255 }   ;// Gray
-	const Color DARKGRAY  = (Color){ 80, 80, 80, 255 }      ;// Dark Gray
-	const Color YELLOW    = (Color){ 253, 249, 0, 255 }     ;// Yellow
-	const Color GOLD      = (Color){ 255, 203, 0, 255 }     ;// Gold
-	const Color ORANGE    = (Color){ 255, 161, 0, 255 }     ;// Orange
-	const Color PINK      = (Color){ 255, 109, 194, 255 }   ;// Pink
-	const Color RED       = (Color){ 230, 41, 55, 255 }     ;// Red
-	const Color MAROON    = (Color){ 190, 33, 55, 255 }     ;// Maroon
-	const Color GREEN     = (Color){ 0, 228, 48, 255 }      ;// Green
-	const Color LIME      = (Color){ 0, 158, 47, 255 }      ;// Lime
-	const Color DARKGREEN = (Color){ 0, 117, 44, 255 }      ;// Dark Green
-	const Color SKYBLUE   = (Color){ 102, 191, 255, 255 }   ;// Sky Blue
-	const Color BLUE      = (Color){ 0, 121, 241, 255 }     ;// Blue
-	const Color DARKBLUE  = (Color){ 0, 82, 172, 255 }      ;// Dark Blue
-	const Color PURPLE    = (Color){ 200, 122, 255, 255 }   ;// Purple
-	const Color VIOLET    = (Color){ 135, 60, 190, 255 }    ;// Violet
-	const Color DARKPURPLE= (Color){ 112, 31, 126, 255 }    ;// Dark Purple
-	const Color BEIGE     = (Color){ 211, 176, 131, 255 }   ;// Beige
-	const Color BROWN     = (Color){ 127, 106, 79, 255 }    ;// Brown
-	const Color DARKBROWN = (Color){ 76, 63, 47, 255 }      ;// Dark Brown
-	const Color WHITE     = (Color){ 255, 255, 255, 255 }   ;// White
-	const Color BLACK     = (Color){ 0, 0, 0, 255 }         ;// Black
-	const Color BLANK     = (Color){ 0, 0, 0, 0 }           ;// Blank (Transparent)
-	const Color MAGENTA   = (Color){ 255, 0, 255, 255 }     ;// Magenta
-	const Color RAYWHITE  = (Color){ 245, 245, 245, 255 }   ;// My own White (raylib logo)
+    inline const Color LIGHTGRAY = (Color){ 200, 200, 200, 255 }   ;// Light Gray
+    inline const Color GRAY      = (Color){ 130, 130, 130, 255 }   ;// Gray
+    inline const Color DARKGRAY  = (Color){ 80, 80, 80, 255 }      ;// Dark Gray
+    inline const Color YELLOW    = (Color){ 253, 249, 0, 255 }     ;// Yellow
+    inline const Color GOLD      = (Color){ 255, 203, 0, 255 }     ;// Gold
+    inline const Color ORANGE    = (Color){ 255, 161, 0, 255 }     ;// Orange
+    inline const Color PINK      = (Color){ 255, 109, 194, 255 }   ;// Pink
+    inline const Color RED       = (Color){ 230, 41, 55, 255 }     ;// Red
+    inline const Color MAROON    = (Color){ 190, 33, 55, 255 }     ;// Maroon
+    inline const Color GREEN     = (Color){ 0, 228, 48, 255 }      ;// Green
+    inline const Color LIME      = (Color){ 0, 158, 47, 255 }      ;// Lime
+    inline const Color DARKGREEN = (Color){ 0, 117, 44, 255 }      ;// Dark Green
+    inline const Color SKYBLUE   = (Color){ 102, 191, 255, 255 }   ;// Sky Blue
+    inline const Color BLUE      = (Color){ 0, 121, 241, 255 }     ;// Blue
+    inline const Color DARKBLUE  = (Color){ 0, 82, 172, 255 }      ;// Dark Blue
+    inline const Color PURPLE    = (Color){ 200, 122, 255, 255 }   ;// Purple
+    inline const Color VIOLET    = (Color){ 135, 60, 190, 255 }    ;// Violet
+    inline const Color DARKPURPLE= (Color){ 112, 31, 126, 255 }    ;// Dark Purple
+    inline const Color BEIGE     = (Color){ 211, 176, 131, 255 }   ;// Beige
+    inline const Color BROWN     = (Color){ 127, 106, 79, 255 }    ;// Brown
+    inline const Color DARKBROWN = (Color){ 76, 63, 47, 255 }      ;// Dark Brown
+    inline const Color WHITE     = (Color){ 255, 255, 255, 255 }   ;// White
+    inline const Color BLACK     = (Color){ 0, 0, 0, 255 }         ;// Black
+    inline const Color BLANK     = (Color){ 0, 0, 0, 0 }           ;// Blank (Transparent)
+    inline const Color MAGENTA   = (Color){ 255, 0, 255, 255 }     ;// Magenta
+    inline const Color RAYWHITE  = (Color){ 245, 245, 245, 255 }   ;// My own White (raylib logo)
 }
+#else
+struct raycolor {
+    const Color LIGHTGRAY ;// Light Gray
+    const Color GRAY      ;// Gray
+    const Color DARKGRAY  ;// Dark Gray
+    const Color YELLOW    ;// Yellow
+    const Color GOLD      ;// Gold
+    const Color ORANGE    ;// Orange
+    const Color PINK      ;// Pink
+    const Color RED       ;// Red
+    const Color MAROON    ;// Maroon
+    const Color GREEN     ;// Green
+    const Color LIME      ;// Lime
+    const Color DARKGREEN ;// Dark Green
+    const Color SKYBLUE   ;// Sky Blue
+    const Color BLUE      ;// Blue
+    const Color DARKBLUE  ;// Dark Blue
+    const Color PURPLE    ;// Purple
+    const Color VIOLET    ;// Violet
+    const Color DARKPURPLE;// Dark Purple
+    const Color BEIGE     ;// Beige
+    const Color BROWN     ;// Brown
+    const Color DARKBROWN ;// Dark Brown
+    const Color WHITE     ;// White
+    const Color BLACK     ;// Black
+    const Color BLANK     ;// Blank (Transparent)
+    const Color MAGENTA   ;// Magenta
+    const Color RAYWHITE  ;// My own White (raylib logo)
+};
+extern struct raycolor rl;
 #endif
+
+
 // Rectangle, 4 components
 typedef struct Rectangle {
     float x;                // Rectangle top-left corner position x

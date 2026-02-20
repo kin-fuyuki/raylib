@@ -989,8 +989,8 @@ Image GenImageWhiteNoise(int width, int height, float factor)
 
     for (int i = 0; i < width*height; i++)
     {
-        if (GetRandomValue(0, 99) < (int)(factor*100.0f)) pixels[i] = WHITE;
-        else pixels[i] = BLACK;
+        if (GetRandomValue(0, 99) < (int)(factor*100.0f)) pixels[i] = rl.WHITE;
+        else pixels[i] = rl.BLACK;
     }
 
     Image image = {
@@ -1474,7 +1474,7 @@ Image ImageText(const char *text, int fontSize, Color color)
     int spacing = fontSize/defaultFontSize;
     imText = ImageTextEx(GetFontDefault(), text, (float)fontSize, (float)spacing, color);   // WARNING: Module required: rtext
 #else
-    imText = GenImageColor(200, 60, BLACK);     // Generating placeholder black image rectangle
+    imText = GenImageColor(200, 60, rl.BLACK);     // Generating placeholder black image rectangle
     TRACELOG(LOG_WARNING, "IMAGE: ImageTextEx() requires module: rtext");
 #endif
     return imText;
@@ -1497,7 +1497,7 @@ Image ImageTextEx(Font font, const char *text, float fontSize, float spacing, Co
     Vector2 textSize = MeasureTextEx(font, text, fontSize, spacing);
 
     // Create image to store text
-    imText = GenImageColor((int)imSize.x, (int)imSize.y, BLANK);
+    imText = GenImageColor((int)imSize.x, (int)imSize.y, rl.BLANK);
 
     for (int i = 0; i < textLength;)
     {
@@ -1540,7 +1540,7 @@ Image ImageTextEx(Font font, const char *text, float fontSize, float spacing, Co
         else ImageResize(&imText, (int)(imSize.x*scaleFactor), (int)(imSize.y*scaleFactor));
     }
 #else
-    imText = GenImageColor(200, 60, BLACK);     // Generating placeholder black image rectangle
+    imText = GenImageColor(200, 60, rl.BLACK);     // Generating placeholder black image rectangle
     TRACELOG(LOG_WARNING, "IMAGE: ImageTextEx() requires module: rtext");
 #endif
     return imText;
@@ -2486,8 +2486,8 @@ void ImageDither(Image *image, int rBpp, int gBpp, int bBpp, int aBpp)
         // NOTE: We will store the dithered data as unsigned short (16bpp)
         image->data = (unsigned short *)RL_MALLOC(image->width*image->height*sizeof(unsigned short));
 
-        Color oldPixel = WHITE;
-        Color newPixel = WHITE;
+        Color oldPixel = rl.WHITE;
+        Color newPixel = rl.WHITE;
 
         int rError = 0;
         int gError = 0;
@@ -3114,7 +3114,7 @@ Color *LoadImagePalette(Image image, int maxPaletteSize, int *colorCount)
     {
         palette = (Color *)RL_MALLOC(maxPaletteSize*sizeof(Color));
 
-        for (int i = 0; i < maxPaletteSize; i++) palette[i] = BLANK;   // Set all colors to BLANK
+        for (int i = 0; i < maxPaletteSize; i++) palette[i] = rl.BLANK;   // Set all colors to BLANK
 
         for (int i = 0; i < image.width*image.height; i++)
         {
@@ -4121,7 +4121,7 @@ void ImageDrawTextEx(Image *dst, Font font, const char *text, Vector2 position, 
     Rectangle srcRec = { 0.0f, 0.0f, (float)imText.width, (float)imText.height };
     Rectangle dstRec = { position.x, position.y, (float)imText.width, (float)imText.height };
 
-    ImageDraw(dst, imText, srcRec, dstRec, WHITE);
+    ImageDraw(dst, imText, srcRec, dstRec, rl.WHITE);
 
     UnloadImage(imText);
 }
@@ -4237,7 +4237,7 @@ TextureCubemap LoadTextureCubemap(Image image, int layout)
 
             // Convert image data to 6 faces in a vertical column, that's the optimum layout for loading
             // NOTE: Image formatting does not work with compressed textures
-            faces = GenImageColor(size, size*6, MAGENTA);
+            faces = GenImageColor(size, size*6, rl.MAGENTA);
             ImageFormat(&faces, image.format);
 
             Image mipmapped = ImageCopy(image);
@@ -4249,7 +4249,7 @@ TextureCubemap LoadTextureCubemap(Image image, int layout)
             }
         #endif
 
-            for (int i = 0; i < 6; i++) ImageDraw(&faces, mipmapped, faceRecs[i], (Rectangle){ 0, (float)size*i, (float)size, (float)size }, WHITE);
+            for (int i = 0; i < 6; i++) ImageDraw(&faces, mipmapped, faceRecs[i], (Rectangle){ 0, (float)size*i, (float)size, (float)size }, rl.WHITE);
 
             UnloadImage(mipmapped);
         }
@@ -5115,7 +5115,7 @@ Color ColorAlpha(Color color, float alpha)
 // Get src alpha-blended into dst color with tint
 Color ColorAlphaBlend(Color dst, Color src, Color tint)
 {
-    Color out = WHITE;
+    Color out = rl.WHITE;
 
     // Apply color tint to source color
     src.r = (unsigned char)(((unsigned int)src.r*((unsigned int)tint.r+1)) >> 8);

@@ -8,7 +8,7 @@ cp src/rlgl.h include/
 cp src/rcamera.h include/
 
 cd linux-64
-cmake -DPLATFORM=Desktop ..
+cmake -DPLATFORM=Desktop  ..
 cd raylib
 make RAYLIB_LIBTYPE=STATIC -j16 CFLAGS="-O3"
 cd ../..
